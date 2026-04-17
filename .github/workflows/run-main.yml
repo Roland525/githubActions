@@ -10,9 +10,14 @@ jobs:
   run:
     runs-on: self-hosted
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - name: Pull latest into githubActions2/githubActions
+        shell: cmd
+        working-directory: C:\Users\asus\Desktop\postgresql\githubActions2\githubActions
+        run: |
+          git fetch origin
+          git reset --hard origin/main
 
       - name: Run main.py
         shell: cmd
+        working-directory: C:\Users\asus\Desktop\postgresql\githubActions2\githubActions
         run: python main.py
